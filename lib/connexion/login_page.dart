@@ -1,6 +1,7 @@
-import 'package:appli_voyage/essai_gradient.dart';
+import 'package:appli_voyage/connexion/social_page.dart';
+import 'package:appli_voyage/test/essai_gradient.dart';
 import 'package:flutter/material.dart';
-import 'delayed_animation.dart';
+import '../animation/delayed_animation.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -84,7 +85,7 @@ class LoginPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SocialPage1(),
+                builder: (context) => SocialPage(),
               ),
             );
           },

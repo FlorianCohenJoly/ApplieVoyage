@@ -1,8 +1,8 @@
-import 'package:appli_voyage/essai_acc.dart';
+import 'package:appli_voyage/test/essai_acc.dart';
 import 'package:flutter/material.dart';
-import 'delayed_animation.dart';
+import '../animation/delayed_animation.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:appli_voyage/login_page.dart';
+import 'package:appli_voyage/connexion/login_page.dart';
 
 
 class SocialPage extends StatelessWidget {

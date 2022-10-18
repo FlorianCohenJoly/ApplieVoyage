@@ -1,6 +1,7 @@
-import 'package:appli_voyage/essai_acc.dart';
+import 'package:appli_voyage/test/essai_acc.dart';
+import 'package:appli_voyage/main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:appli_voyage/home_page.dart';
+import 'package:appli_voyage/test/home_page.dart';
 
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false ,
       title: 'Flutter Demo',
-      home: WelcomePage(),
+      home: MainPage(),
     );
   }
 }
