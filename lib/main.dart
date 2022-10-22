@@ -1,5 +1,5 @@
 import 'package:appli_voyage/test/essai_acc.dart';
-import 'package:appli_voyage/main_page.dart';
+import 'package:appli_voyage/intro_screens/main_screen_info.dart';
 import 'package:flutter/material.dart';
 import 'package:appli_voyage/test/home_page.dart';
 

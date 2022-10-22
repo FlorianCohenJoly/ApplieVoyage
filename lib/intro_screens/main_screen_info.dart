@@ -1,19 +1,17 @@
 // Fichier qui contient les 3 premières pages quand on lances l'application.
 
-
-
-
 import 'package:appli_voyage/intro_screens/intro_page_2.dart';
 import 'package:appli_voyage/intro_screens/intro_page_3.dart';
 import 'package:appli_voyage/intro_screens/intro_page_1.dart';
 import 'package:appli_voyage/connexion/login_page.dart';
 import 'package:appli_voyage/connexion/social_page.dart';
+import 'package:appli_voyage/navigation/bot_nav_bar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'intro_screens/intro_page_1.dart';
+import 'intro_page_1.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -78,7 +76,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SocialPage(),
+                                builder: (context) => BottomNavigation(),
                               ),
                             );
                           },
