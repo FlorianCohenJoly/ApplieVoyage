@@ -12,7 +12,9 @@ class _SearchNavState extends State<SearchNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("fgg")
+      body: Text("fgg"),
+      backgroundColor: Colors.green.shade400,
+
     );
   }
 }

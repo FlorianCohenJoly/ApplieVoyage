@@ -12,7 +12,9 @@ class _LikeNavState extends State<LikeNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("like")
+      body: Text("like"),
+      backgroundColor: Colors.green.shade400,
+
     );
   }
 }

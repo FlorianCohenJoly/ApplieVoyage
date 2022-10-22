@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
                   controller: _controller, 
                   count: 3,
                   effect: JumpingDotEffect(
-                    activeDotColor: Colors.green,
+                    activeDotColor: Colors.green.shade400,
                     dotHeight: 20,
                     dotWidth: 20,
                     
@@ -83,7 +83,7 @@ class _MainPageState extends State<MainPage> {
                           child: Text("C'est partie"),
                           style: ElevatedButton.styleFrom(
                             shape: StadiumBorder(),
-                            backgroundColor: Color.fromARGB(232, 212, 161, 21),
+                            backgroundColor: Colors.green.shade400,
                             textStyle: TextStyle(
                               fontSize: 15,
                             ),

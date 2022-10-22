@@ -35,16 +35,16 @@ class _BottomNavigationState extends State<BottomNavigation> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 20, 80, 22),
+          color: Colors.green.shade400,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical:17),
           child: GNav(
             gap: 8,
-            backgroundColor: Color.fromARGB(255, 20, 80, 22),
-            color: Colors.white,
-            activeColor: Color.fromARGB(255, 255, 255, 255),
-            tabBackgroundColor: Colors.grey.shade400,
+            backgroundColor: Colors.green.shade400,
+            color: Colors.black,
+            activeColor: Colors.black,
+            tabBackgroundColor: Colors.grey.shade300,
             padding: EdgeInsets.all(16),
             tabs: [
               GButton(

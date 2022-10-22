@@ -1,3 +1,4 @@
+import 'package:appli_voyage/intro_screens/main_screen_info.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +14,7 @@ class _HomeNavState extends State<HomeNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Home")
+      body: MainPage(),
     );
   }
 }

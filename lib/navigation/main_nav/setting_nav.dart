@@ -12,7 +12,9 @@ class _SettingNavState extends State<SettingNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("gfgfg")
+      body: Text("gfgfg"),
+      backgroundColor: Colors.green.shade400,
+
     );
   }
 }
