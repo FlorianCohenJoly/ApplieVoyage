@@ -1,76 +1,37 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:appli_voyage/navigation/bot_nav_bar.dart';
+import 'package:appli_voyage/connexion/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class HomePageLogin extends StatefulWidget {
-  const HomePageLogin({Key? key}) : super(key: key);
-
-  @override
-  _HomePageLoginState createState() => _HomePageLoginState();
-}
-
-class _HomePageLoginState extends State<HomePageLogin> {
-  Future<FirebaseApp> _initializeFirebase() async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
-    return firebaseApp;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
-        future: _initializeFirebase(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return LoginPage(
-              showRegisterPage: () {},
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
-  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
+  const RegisterPage({ Key? key, required this.showRegisterPage, required void Function() showLoginPage }) : super(key: key);
+
+  
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  static Future<User?> loginUsingEmailPassword(
-      {required String email,
-      required String password,
-      required BuildContext context}) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-    try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      user = userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == "user not found") {
-        print("not user found with email");
-      }
-    }
-    return user;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    TextEditingController _emailController = TextEditingController();
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
+
+    Future signUp() async {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(), 
+        password: _passwordController.text.trim(),
+        );
+        Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => HomePageLogin()));
+    }
+
+
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
@@ -87,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // hello
                 Text(
-                  "Hello",
+                  "Bienvenue",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 36,
@@ -95,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Bienvenue, tu nous a manqué",
+                  "Inscrit toi ! 😁",
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -159,20 +120,10 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     onPressed: () async {
-                      User? user = await loginUsingEmailPassword(
-                          email: _emailController.text,
-                          password: _passwordController.text,
-                          context: context);
-                      print(user);
-                      if (user != null) {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => BottomNavigation()));
-                      } else {
-                        print("not user found with email");
-                      }
+                      signUp();
                     },
                     child: const Text(
-                      "Se connecter",
+                      "S'inscrire",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -181,30 +132,52 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
+
+
+                // GestureDetector(
+                  
+                //   onTap: signUp,
+                //   child: Text("ff"),
+                // ),
+
+
+
+
+
+                // Container(
+                //   width: 345,
+                //   child: RawMaterialButton(
+                //       fillColor: Colors.green,
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(12),
+                //       ),
+                //       onPressed: () async {
+                //         User? user = await loginUsingEmailPassword(
+                //             email: _emailController.text,
+                //             password: _passwordController.text,
+                //             context: context);
+                //         print(user);
+                //         if (user != null) {
+                //           Navigator.of(context).pushReplacement(
+                //               MaterialPageRoute(
+                //                   builder: (context) => BottomNavigation()));
+                //         } else {
+                //           print("not user found with email");
+                //         }
+                //       },
+                //       child: const Text(
+                //         "Se connecter",
+                //         style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: 18,
+                //         ),
+                //       )),
+                // ),
+
                 SizedBox(height: 25),
 
                 // register now
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Pas de compte ?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: widget.showRegisterPage,
-                      child: Text(
-                        " Inscrit toi !",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                
               ],
             ),
           ),

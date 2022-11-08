@@ -1,5 +1,6 @@
 // Fichier qui contient les 3 premières pages quand on lances l'application.
 
+import 'package:appli_voyage/connexion/auth_page.dart';
 import 'package:appli_voyage/intro_screens/intro_page_2.dart';
 import 'package:appli_voyage/intro_screens/intro_page_3.dart';
 import 'package:appli_voyage/intro_screens/intro_page_1.dart';
@@ -76,7 +77,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BottomNavigation(),
+                                builder: (context) => AuthPage(),
                               ),
                             );
                           },

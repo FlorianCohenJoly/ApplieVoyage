@@ -1,10 +1,17 @@
-import 'package:appli_voyage/test/essai_acc.dart';
+import 'package:appli_voyage/connexion/auth_page.dart';
+import 'package:appli_voyage/connexion/login_page.dart';
+import 'package:appli_voyage/connexion/login_page.dart';
 import 'package:appli_voyage/intro_screens/main_screen_info.dart';
 import 'package:flutter/material.dart';
-import 'package:appli_voyage/test/home_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+
   runApp(const MyApp());
 }
 
